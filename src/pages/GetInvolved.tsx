@@ -1,4 +1,4 @@
-import { Heart, Users, HandHeart, Clock, Calendar, Mail } from "lucide-react";
+import { Heart, Users, HandHeart, Mail } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Button } from "@/components/ui/button";
@@ -38,27 +38,6 @@ const GetInvolvedPage = () => {
         "Sponsor a child",
         "Project funding"
       ]
-    }
-  ];
-
-  const upcomingEvents = [
-    {
-      title: "Community Health Camp",
-      date: "July 15, 2025",
-      location: "Rural Maharashtra",
-      description: "Free health checkups and awareness session for village communities."
-    },
-    {
-      title: "Education Workshop",
-      date: "August 1, 2025",
-      location: "Mumbai Center",
-      description: "Teacher training program for quality education delivery."
-    },
-    {
-      title: "Youth Skill Development",
-      date: "August 20, 2025",
-      location: "Urban Centers",
-      description: "Technical skills workshop for unemployed youth."
     }
   ];
 
@@ -102,37 +81,6 @@ const GetInvolvedPage = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Upcoming Events */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-prachetas-black">Upcoming Events</h2>
-            <p className="text-prachetas-medium-gray text-lg">
-              Join us at these upcoming events and be part of the change
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {upcomingEvents.map((event, index) => (
-              <div key={`${event.title}-${index}`} className="bg-white rounded-xl p-8 transform transition-all duration-300 hover:scale-[1.02] shadow-lg border border-gray-200">
-                <div className="flex items-center mb-4 text-prachetas-yellow">
-                  <Calendar className="h-5 w-5 mr-2" />
-                  <span className="font-medium">{event.date}</span>
-                </div>
-                <h3 className="text-xl font-bold text-prachetas-black mb-2">{event.title}</h3>
-                <div className="flex items-center mb-4 text-prachetas-medium-gray">
-                  <Clock className="h-4 w-4 mr-2" />
-                  <span>{event.location}</span>
-                </div>
-                <p className="text-prachetas-medium-gray mb-6">{event.description}</p>
-                <Button asChild className="w-full bg-prachetas-yellow text-prachetas-black hover:bg-prachetas-bright-yellow border-none">
-                  <Link to="/volunteer">Register Now</Link>
-                </Button>
               </div>
             ))}
           </div>

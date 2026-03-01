@@ -35,7 +35,12 @@ const donationFormSchema = z.object({
   address: z.string().min(5, {
     message: "Please enter your address.",
   }),
-  panCard: z.string().optional(),
+  panCard: z.string()
+    .min(10, { message: "PAN card must be 10 characters." })
+    .max(10, { message: "PAN card must be 10 characters." })
+    .regex(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, { 
+      message: "Please enter a valid PAN card number (e.g., ABCDE1234F)." 
+    }),
 });
 
 type DonationFormValues = z.infer<typeof donationFormSchema>;
@@ -574,12 +579,13 @@ const MultistepDonation = () => {
                           name="panCard"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>PAN Card (Optional - for tax benefits)</FormLabel>
+                              <FormLabel>PAN Card *</FormLabel>
                               <FormControl>
                                 <Input
                                   placeholder="Enter PAN card number"
                                   {...field}
                                   className="bg-transparent border-gray-700"
+                                  maxLength={10}
                                 />
                               </FormControl>
                               <FormMessage />
