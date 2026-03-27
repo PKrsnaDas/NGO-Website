@@ -38,9 +38,10 @@ const donationFormSchema = z.object({
   panCard: z.string()
     .min(10, { message: "PAN card must be 10 characters." })
     .max(10, { message: "PAN card must be 10 characters." })
-    .regex(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, { 
+    .transform((val) => val.toUpperCase())
+    .pipe(z.string().regex(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, { 
       message: "Please enter a valid PAN card number (e.g., ABCDE1234F)." 
-    }),
+    })),
 });
 
 type DonationFormValues = z.infer<typeof donationFormSchema>;

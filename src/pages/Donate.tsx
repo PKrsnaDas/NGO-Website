@@ -7,7 +7,11 @@ const DonatePage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-        {/* Hero Section */}
+      
+      {/* Donation Form Section */}
+      <MultistepDonation />
+
+        {/* Hero Section */
       <section className="py-16 bg-white text-prachetas-black">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
@@ -92,8 +96,7 @@ const DonatePage = () => {
         </div>
       </section>
       
-      {/* Donation Form Section */}
-      <MultistepDonation />      {/* FAQ Section */}      <section className="py-16 bg-gray-100 text-prachetas-black">
+      {/* FAQ Section */}      <section className="py-16 bg-gray-100 text-prachetas-black">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center text-prachetas-black">Frequently Asked Questions</h2><div className="max-w-4xl mx-auto space-y-6">
                         <div className="bg-white p-8 rounded-lg transform transition-transform duration-300 hover:scale-[1.01] shadow-md border border-gray-200">
