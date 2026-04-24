@@ -62,7 +62,7 @@ const AboutPage = () => {
       name: "Anupam Agarwal",
       role: "Director Program",
       image: "/anupam.jpeg",
-      bio: "",
+      bio: "Anupam Agarwal has more than 27 years of Telcom and IT experience. He has worked for companies like Infosys, TCS, Hughes software and others. He is Btech from NIT Surat.",
     },
   ];
 
