@@ -52,6 +52,18 @@ const AboutPage = () => {
       image: "/arkodit.png",
       bio: "Arkodit Deb Burman has over 8 years of experience in human resources, having worked with leading organizations such as Cummins India, Airtel, and Vodafone Intelligent Solutions. He holds an MBA degree from Symbiosis Centre for Management and Human Resource Development (SCMHRD), Pune.",
     },
+    {
+      name: "CA. Amit Khare",
+      role: "Legal & Compliance",
+      image: "/amitkhare.jpeg",
+      bio: "Amit Khare is a qualified Chartered Accountant with 21 years of professional experience in the Industry with organisations like General Motors, Kohler, Godrej, Peri, Kelvin etc.",
+    },
+    {
+      name: "Anupam Agarwal",
+      role: "Director Program",
+      image: "/anupam.jpeg",
+      bio: "",
+    },
   ];
 
   const milestones = [
@@ -296,9 +308,9 @@ const AboutPage = () => {
       <section id="team" className="py-16 bg-gray-100 text-prachetas-medium-gray">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center text-prachetas-black">Our Team</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {teamMembers.map((member, index) => (
-              <div key={member.name} className="bg-white rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-md">
+              <div key={member.name} className="bg-white rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-md w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
                 <img 
                   src={member.image} 
                   alt={member.name} 
