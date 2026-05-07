@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MapPin, Phone, Mail, Send, MessageCircle, Share2, Hash } from "lucide-react";
+import { MapPin, Phone, Mail, Send, MessageCircle, Share2, Hash, Linkedin } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -74,6 +74,14 @@ const ContactSection = () => {
                       <div className="flex-1">
                         <span className="text-prachetas-medium-gray font-medium">@PrachetasFoundation</span>
                         <span className="text-xs text-gray-500 ml-2">X (Twitter)</span>
+                      </div>
+                    </a>
+                    <a href="https://www.linkedin.com/company/prachetas-foundation/" target="_blank" rel="noopener noreferrer"
+                       className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-prachetas-yellow/10 transition-colors border border-gray-200">
+                      <Linkedin className="h-5 w-5 text-[#0A66C2]" />
+                      <div className="flex-1">
+                        <span className="text-prachetas-medium-gray font-medium">Prachetas Foundation</span>
+                        <span className="text-xs text-gray-500 ml-2">LinkedIn</span>
                       </div>
                     </a>
                   </div>

@@ -28,14 +28,21 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex flex-col">
-            <span className="font-bold text-2xl">
-              <span className="text-white">PRACHETAS</span>{" "}
-              <span className="text-prachetas-yellow">FOUNDATION</span>
-            </span>
-            <span className="text-prachetas-yellow text-sm tracking-wider font-medium">
-              WHERE COMPASSION MEETS ACTION
-            </span>
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src="/New_Logo_Whole-White.png"
+              alt="Prachetas Foundation Logo"
+              className="h-12 w-auto"
+            />
+            <div className="flex flex-col">
+              <span className="font-bold text-2xl">
+                <span className="text-white">PRACHETAS</span>{" "}
+                <span className="text-prachetas-yellow">FOUNDATION</span>
+              </span>
+              <span className="text-prachetas-yellow text-sm tracking-wider font-medium">
+                WHERE COMPASSION MEETS ACTION
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

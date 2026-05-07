@@ -41,6 +41,24 @@ const AboutPage = () => {
       bio: "Jasbir Singh has over 16 years of experience across the IT and manufacturing sectors and currently leads Sales and Delivery operations at UST Product Engineering. He holds an MBA degree from Symbiosis Centre for Management and Human Resource Development (SCMHRD), Pune",
     },
     {
+      name: "Priya Narayanan",
+      role: "Department Head",
+      image: "",
+      bio: "",
+    },
+    {
+      name: "Smita Joshi",
+      role: "Department Head",
+      image: "",
+      bio: "",
+    },
+    {
+      name: "Manish Mittal",
+      role: "Department Head",
+      image: "",
+      bio: "",
+    },
+    {
       name: "Pradeep Sankaran",
       role: "Board Member",
       image: "/pradeep.jpg",
@@ -311,11 +329,17 @@ const AboutPage = () => {
           <div className="flex flex-wrap justify-center gap-8">
             {teamMembers.map((member, index) => (
               <div key={member.name} className="bg-white rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-md w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="w-full h-64 object-cover object-top"
-                />
+                {member.image ? (
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full h-64 object-cover object-top"
+                  />
+                ) : (
+                  <div className="w-full h-64 bg-gray-200 flex items-center justify-center">
+                    <span className="text-4xl font-bold text-gray-400">{member.name.split(' ').map(n => n[0]).join('')}</span>
+                  </div>
+                )}
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-prachetas-black">{member.name}</h3>
                   <p className="text-prachetas-yellow mb-4 font-medium">{member.role}</p>

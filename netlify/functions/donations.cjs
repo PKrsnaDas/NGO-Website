@@ -78,45 +78,6 @@ exports.handler = async (event, context) => {
     }
   }
 
-  if (event.httpMethod === 'GET') {
-    try {
-      const page = parseInt(event.queryStringParameters?.page) || 1;
-      const pageSize = parseInt(event.queryStringParameters?.pageSize) || 10;
-      const offset = (page - 1) * pageSize;
-
-      const donations = await sql`
-        SELECT * FROM donations ORDER BY created_at DESC LIMIT ${pageSize} OFFSET ${offset};
-      `;
-
-      const totalCountResult = await sql`SELECT COUNT(*) FROM donations;`;
-      const totalCount = parseInt(totalCountResult[0].count);
-
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify({
-          success: true,
-          donations,
-          totalCount,
-          page,
-          pageSize,
-          totalPages: Math.ceil(totalCount / pageSize)
-        })
-      };
-
-    } catch (error) {
-      console.error('❌ Error fetching donations:', error);
-      return {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({
-          success: false,
-          error: error.message || 'Failed to fetch donations'
-        })
-      };
-    }
-  }
-
   return {
     statusCode: 405,
     headers,

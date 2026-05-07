@@ -42,6 +42,7 @@ const donationFormSchema = z.object({
     .pipe(z.string().regex(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, { 
       message: "Please enter a valid PAN card number (e.g., ABCDE1234F)." 
     })),
+  remarks: z.string().optional(),
 });
 
 type DonationFormValues = z.infer<typeof donationFormSchema>;
@@ -93,6 +94,7 @@ const MultistepDonation = () => {
       phone: "",
       address: "",
       panCard: "",
+      remarks: "",
     },
   });
 
@@ -134,6 +136,7 @@ const MultistepDonation = () => {
       
       // Notes for the payment
       const notes = {
+        donor_name: values.fullName,
         address: values.address,
         pan_card: values.panCard || "Not provided",
         payment_for: "Donation to Prachetas Foundation"
@@ -222,7 +225,8 @@ const MultistepDonation = () => {
         phone: formValues.phone,
         address: formValues.address,
         panCard: formValues.panCard,
-        isRecurring: formValues.isRecurring
+        isRecurring: formValues.isRecurring,
+        remarks: formValues.remarks
       };
       
       console.log('👤 Processing payment success with complete donor info:', completeDonorInfo);
@@ -604,6 +608,24 @@ const MultistepDonation = () => {
                             <FormControl>
                               <Input
                                 placeholder="Enter your address"
+                                {...field}
+                                className="bg-transparent border-gray-700"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="remarks"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Remarks (Optional)</FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="Any remarks or message"
                                 {...field}
                                 className="bg-transparent border-gray-700"
                               />

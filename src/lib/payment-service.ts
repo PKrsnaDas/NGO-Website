@@ -48,8 +48,8 @@ export const processRazorpayResponse = async (
     paymentType: response.razorpay_subscription_id ? 'monthly_sip' : 'one_time',
     paymentId: response.razorpay_payment_id,
     subscriptionId: response.razorpay_subscription_id || null,
-    status: 'completed', // Mark as completed since payment was successful
-    message: `Payment processed successfully via ${response.razorpay_subscription_id ? 'Subscription' : 'One-time payment'}`,
+    status: 'completed',
+    message: donorInfo.remarks || '',
     createdAt: new Date().toISOString(),
     receiveUpdates: true,
     paymentMethod: 'razorpay'
