@@ -41,24 +41,6 @@ const AboutPage = () => {
       bio: "Jasbir Singh has over 16 years of experience across the IT and manufacturing sectors and currently leads Sales and Delivery operations at UST Product Engineering. He holds an MBA degree from Symbiosis Centre for Management and Human Resource Development (SCMHRD), Pune",
     },
     {
-      name: "Priya Narayanan",
-      role: "Department Head",
-      image: "",
-      bio: "",
-    },
-    {
-      name: "Smita Joshi",
-      role: "Department Head",
-      image: "",
-      bio: "",
-    },
-    {
-      name: "Manish Mittal",
-      role: "Department Head",
-      image: "",
-      bio: "",
-    },
-    {
       name: "Pradeep Sankaran",
       role: "Board Member",
       image: "/pradeep.jpg",
@@ -81,6 +63,24 @@ const AboutPage = () => {
       role: "Director Program",
       image: "/anupam.jpeg",
       bio: "Anupam Agarwal has more than 27 years of Telcom and IT experience. He has worked for companies like Infosys, TCS, Hughes software and others. He is Btech from NIT Surat.",
+    },
+    {
+      name: "Priya Narayanan",
+      role: "Department Head",
+      image: "",
+      bio: "",
+    },
+    {
+      name: "Smita Joshi",
+      role: "Department Head",
+      image: "",
+      bio: "",
+    },
+    {
+      name: "Manish Mittal",
+      role: "Department Head",
+      image: "",
+      bio: "",
     },
   ];
 
