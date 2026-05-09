@@ -67,20 +67,20 @@ const AboutPage = () => {
     {
       name: "Priya Narayanan",
       role: "Department Head",
-      image: "",
-      bio: "",
+      image: "/priya.jpg",
+      bio: "Priya has over 15 years of experience in Banking and Finance. She Leads a passionate and energetic team of trainers with a dream to do upskill the youths and create the leaders of tomorrow. Priya is also Founder of Daksha Skilling Academy.",
     },
     {
       name: "Smita Joshi",
       role: "Department Head",
-      image: "",
-      bio: "",
+      image: "/smita.png",
+      bio: "Smita is a Financial and Investment Advisor, as well as a Yoga Instructor and Counsellor with over 15 years of experience since 2010. She conducts workshops and seminars focused on integrating yoga, mindfulness, and holistic practices into daily life to support stress management, emotional balance, and personal growth. Passionate about well-being and spiritual development, Smita is dedicated to fostering a mindful and empowered community that values inner harmony alongside financial wellness.",
     },
     {
       name: "Manish Mittal",
       role: "Department Head",
-      image: "",
-      bio: "",
+      image: "/Manish.jpg",
+      bio: "Manish Mittal is a Mechanical Design PG from IIT Delhi with over 20 years of experience in R&D, currently contributing his expertise within a multinational corporation. Driven by a deep passion for serving humanity and promoting holistic wellness, Manish is well-versed in the Panchtatva Chikitsa Siddhant—a unique healing philosophy focused on treating ailments naturally without medication. Along with his team, he has trained more than 5,000 individuals in this approach, positively impacting the lives of nearly 50,000 people through awareness, guidance, and transformative wellness practices.",
     },
   ];
 
