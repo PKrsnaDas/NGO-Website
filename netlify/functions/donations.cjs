@@ -2,8 +2,15 @@ const { neon } = require('@neondatabase/serverless');
 
 const sql = neon(process.env.NETLIFY_DATABASE_URL);
 
+const ensureReferredByColumn = async () => {
+  try {
+    await sql`ALTER TABLE donations ADD COLUMN IF NOT EXISTS referred_by VARCHAR(100)`;
+  } catch (_) {}
+};
+
 exports.handler = async (event, context) => {
   console.log('💾 Donations function called:', event.httpMethod);
+  await ensureReferredByColumn();
 
   // Handle CORS
   const headers = {
@@ -33,7 +40,7 @@ exports.handler = async (event, context) => {
         INSERT INTO donations (
           donor_name, donor_email, donor_phone, address, pan_card,
           amount, currency, payment_type, payment_id, subscription_id,
-          status, message, receive_updates, payment_method, created_at
+          status, message, receive_updates, payment_method, created_at, referred_by
         ) VALUES (
           ${donationData.donorName},
           ${donationData.donorEmail},
@@ -49,7 +56,8 @@ exports.handler = async (event, context) => {
           ${donationData.message || ''},
           ${donationData.receiveUpdates || true},
           ${donationData.paymentMethod || 'razorpay'},
-          ${donationData.createdAt || new Date().toISOString()}
+          ${donationData.createdAt || new Date().toISOString()},
+          ${donationData.referredBy || null}
         ) RETURNING id, payment_id;
       `;
 

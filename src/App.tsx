@@ -20,6 +20,7 @@ import WellnessProgram from "./pages/WellnessProgram";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
+import FundraiserPage from "./pages/FundraiserPage";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/programs/tech-education" element={<EducationProgram />} />
           <Route path="/programs/green-cloud" element={<WellnessProgram />} />
           <Route path="/programs/training" element={<EducationProgram />} />
+          <Route path="/fundraise/:slug" element={<FundraiserPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -63,12 +64,29 @@ const SIP_AMOUNTS = [
 ];
 
 const MultistepDonation = () => {
+  const [searchParams] = useSearchParams();
+  const refSlug = searchParams.get("ref");
+
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedAmount, setSelectedAmount] = useState<string | null>("1000");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [paymentError, setPaymentError] = useState<string | null>(null);
   const [transactionId, setTransactionId] = useState<string | null>(null);
+  const [referrerName, setReferrerName] = useState<string | null>(null);
+
+  // Fetch referrer name if ?ref= is present
+  useEffect(() => {
+    if (!refSlug) return;
+    fetch(`/.netlify/functions/fundraiser-link?slug=${encodeURIComponent(refSlug)}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data?.success && data.link?.student_name) {
+          setReferrerName(data.link.student_name);
+        }
+      })
+      .catch(() => {});
+  }, [refSlug]);
 
   // Initialize Razorpay
   useEffect(() => {
@@ -226,7 +244,8 @@ const MultistepDonation = () => {
         address: formValues.address,
         panCard: formValues.panCard,
         isRecurring: formValues.isRecurring,
-        remarks: formValues.remarks
+        remarks: formValues.remarks,
+        referredBy: refSlug || null
       };
       
       console.log('👤 Processing payment success with complete donor info:', completeDonorInfo);
@@ -345,7 +364,20 @@ const MultistepDonation = () => {
           <p className="text-lg text-gray-300">
             Your contribution helps us make a difference in the lives of those in need.
           </p>
-          
+
+          {refSlug && (
+            <div className="mt-5 inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/30 text-yellow-300 text-sm font-medium px-4 py-2 rounded-full">
+              <span>🎉</span>
+              <span>
+                You're donating via{" "}
+                <span className="font-bold text-yellow-400">
+                  {referrerName ?? refSlug}
+                </span>
+                's fundraiser link
+              </span>
+            </div>
+          )}
+
           {currentStep === 1 && !isSuccess && (
             <p className="text-yellow-400 font-medium mt-8">Step 1: Select Amount</p>
           )}

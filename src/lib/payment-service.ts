@@ -52,7 +52,8 @@ export const processRazorpayResponse = async (
     message: donorInfo.remarks || '',
     createdAt: new Date().toISOString(),
     receiveUpdates: true,
-    paymentMethod: 'razorpay'
+    paymentMethod: 'razorpay',
+    referredBy: donorInfo.referredBy || null
   };
 
   console.log('💾 Saving donation data to database:', donationData);
